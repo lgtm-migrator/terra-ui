@@ -1,10 +1,6 @@
 import Editor from '@monaco-editor/react'
-import _ from 'lodash/fp'
 import Prism from 'prismjs'
-import { useRef } from 'react'
-import { code, div, h, pre } from 'react-hyperscript-helpers'
-import ReactJson from 'react-json-view'
-import * as Style from 'src/libs/style'
+import { div, h } from 'react-hyperscript-helpers'
 
 
 /*
@@ -68,11 +64,10 @@ Prism.languages.wdl = {
   ]
 }
 
-const WDLViewer = ({ wdl, ...props }) => {
+const WDLViewer = ({ wdl }) => {
   return wdl && div({ style: { width: 500 } }, [h(Editor, {
     height: '90vh',
-    defaultLanguage: 'javascript',
-    defaultValue: wdl
+    value: wdl
   })])
 }
 
