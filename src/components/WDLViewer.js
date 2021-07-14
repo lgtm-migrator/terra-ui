@@ -1,7 +1,9 @@
+import Editor from '@monaco-editor/react'
 import _ from 'lodash/fp'
 import Prism from 'prismjs'
-import { useLayoutEffect, useRef } from 'react'
-import { code, pre } from 'react-hyperscript-helpers'
+import { useRef } from 'react'
+import { code, div, h, pre } from 'react-hyperscript-helpers'
+import ReactJson from 'react-json-view'
 import * as Style from 'src/libs/style'
 
 
@@ -67,22 +69,11 @@ Prism.languages.wdl = {
 }
 
 const WDLViewer = ({ wdl, ...props }) => {
-  const elem = useRef()
-
-  useLayoutEffect(() => {
-    Prism.highlightElement(elem.current)
-  }, [wdl])
-
-  return pre(_.merge(
-    {
-      tabIndex: 0,
-      className: 'line-numbers',
-      style: { border: Style.standardLine, backgroundColor: 'white' }
-    },
-    props),
-  [
-    code({ className: 'language-wdl', ref: elem }, [wdl])
-  ])
+  return wdl && div({ style: { width: 500 } }, [h(Editor, {
+    height: '90vh',
+    defaultLanguage: 'javascript',
+    defaultValue: wdl
+  })])
 }
 
 export default WDLViewer

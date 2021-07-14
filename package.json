@@ -8,6 +8,7 @@
     "@fortawesome/free-regular-svg-icons": "^5.15.3",
     "@fortawesome/free-solid-svg-icons": "^5.15.3",
     "@fortawesome/react-fontawesome": "^0.1.14",
+    "@monaco-editor/react": "^4.2.1",
     "animate.css": "^4.1.1",
     "array-move": "^3.0.1",
     "clipboard-polyfill": "^3.0.3",
