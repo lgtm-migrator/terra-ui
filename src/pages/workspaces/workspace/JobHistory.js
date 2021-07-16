@@ -3,7 +3,7 @@ import { Fragment, useImperativeHandle, useRef, useState } from 'react'
 import { div, h, span, table, tbody, td, tr } from 'react-hyperscript-helpers'
 import { AutoSizer } from 'react-virtualized'
 import * as breadcrumbs from 'src/components/breadcrumbs'
-import { ButtonPrimary, Clickable, Link, spinnerOverlay } from 'src/components/common'
+import { ButtonPrimary, Clickable, ClipboardButton, Link, spinnerOverlay } from 'src/components/common'
 import { DelayedSearchInput } from 'src/components/input'
 import { collapseStatus, failedIcon, runningIcon, submittedIcon, successIcon } from 'src/components/job-common'
 import Modal from 'src/components/Modal'
@@ -131,11 +131,11 @@ const JobHistory = _.flow(
         _.map(sub => {
           const {
             methodConfigurationName, methodConfigurationNamespace, status, submissionDate,
-            submissionEntity: { entityType, entityName } = {}, submissionId, submitter
+            submissionEntity: { entityType, entityName } = {}, submissionId, submitter, userComment
           } = sub
 
           const subAsText = _.join(' ', [
-            methodConfigurationName, methodConfigurationNamespace, status, submissionDate, entityType, entityName, submissionId, submitter
+            methodConfigurationName, methodConfigurationNamespace, status, submissionDate, entityType, entityName, submissionId, submitter, userComment
           ]).toLowerCase()
 
           return _.set('asText', subAsText, sub)
@@ -303,6 +303,17 @@ const JobHistory = _.flow(
                     ...Utils.newTabLinkProps,
                     href: bucketBrowserUrl(`${bucketName}/${submissionId}`)
                   }, [submissionId])
+                ])
+              }
+            },
+            {
+              size: { basis: 150, grow: 1 },
+              headerRenderer: () => h(HeaderCell, ['Comments']),
+              cellRenderer: ({ rowIndex }) => {
+                const { userComment } = filteredSubmissions[rowIndex]
+                return userComment && h(Fragment, [
+                  h(TooltipCell, { tooltip: userComment }, [userComment]),
+                  h(ClipboardButton, { text: userComment, style: { marginLeft: '0.5rem' } })
                 ])
               }
             }

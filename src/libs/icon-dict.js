@@ -1,6 +1,6 @@
 import { faClipboard, faClock, faClone, faEye, faFileAlt, faFolder, faFolderOpen, faListAlt, faTimesCircle } from '@fortawesome/free-regular-svg-icons'
 import {
-  faArrowLeft, faArrowRight, faBan, faCaretDown, faChalkboard, faCheck, faCheckCircle, faCircle, faClock as faClockSolid, faCloud, faCog, faCreditCard, faDownload,
+  faArrowLeft, faArrowRight, faBan, faCaretDown, faChalkboard, faCheck, faCheckCircle, faCircle, faClock as faClockSolid, faCloud, faCog, faCommentDots, faCreditCard, faDownload,
   faEllipsisV, faExclamationCircle, faExclamationTriangle, faFileInvoiceDollar, faGripHorizontal, faInfoCircle, faLock, faLongArrowAltDown,
   faLongArrowAltUp, faMinusCircle, faMoneyCheckAlt, faPause, faPen, faPlay, faPlus, faPlusCircle, faQuestion, faQuestionCircle, faSearch, faShareAlt, faSquare as faSquareSolid,
   faTachometerAlt, faTasks, faTerminal, faTrashAlt, faVirus
@@ -59,6 +59,7 @@ const iconDict = {
   cloudBolt: custom(faCloudBolt),
   cog: fa(faCog),
   columnGrabber: custom(columnGrabber),
+  commentDots: fa(faCommentDots),
   copy: fa(faClone),
   copySolid: custom(copySolid),
   'copy-to-clipboard': fa(faClipboard),

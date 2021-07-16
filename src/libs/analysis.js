@@ -7,7 +7,7 @@ export const launch = async ({
   isSnapshot,
   workspace: { workspace: { namespace, name, bucketName }, accessLevel },
   config: { namespace: configNamespace, name: configName, rootEntityType },
-  selectedEntityType, selectedEntityNames, newSetName, useCallCache = true, deleteIntermediateOutputFiles, useReferenceDisks,
+  selectedEntityType, selectedEntityNames, newSetName, useCallCache = true, deleteIntermediateOutputFiles, useReferenceDisks, userComment,
   onProgress
 }) => {
   const createSet = () => {
@@ -59,6 +59,6 @@ export const launch = async ({
     ),
     entityName,
     expression: processSet ? `this.${rootEntityType}s` : undefined,
-    useCallCache, deleteIntermediateOutputFiles, useReferenceDisks
+    useCallCache, deleteIntermediateOutputFiles, useReferenceDisks, userComment
   })
 }
