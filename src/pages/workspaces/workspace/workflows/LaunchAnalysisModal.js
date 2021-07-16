@@ -107,14 +107,14 @@ const LaunchAnalysisModal = ({
         ])]) : 'Loading...'
     ]),
     h(IdContainer, [id => div({ style: { margin: '1rem 0' } }, [
-      label({ htmlFor: id, style: { display: 'block' } }, ['Add Comments:']),
+      label({ htmlFor: id, style: { display: 'block' } }, ['Add Comments (optional):']),
       div([
         h(TextArea, {
           id,
           placeholder: 'Enter comment for the submission',
           value: userComment,
           onChange: v => setUserComment(v),
-          style: { height: 100 }
+          style: { height: 100, marginTop: '0.5rem' }
         })
       ])
     ])]),

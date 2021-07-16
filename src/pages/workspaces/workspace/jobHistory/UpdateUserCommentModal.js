@@ -17,9 +17,10 @@ const UpdateUserCommentModal = ({
 
   const doUpdate = async () => {
     try {
-      // TODO: How to remove whitespaces here?
-      await Ajax().Workspaces.workspace(namespace, name).submission(submissionId).updateUserComment(updateComment)
-      onSuccess(updateComment)
+      const trimmedComment = _.trim(updateComment)
+      // setUpdateComment(trimmedComment) // TODO: Why doesn't the setUpdate not work?
+      await Ajax().Workspaces.workspace(namespace, name).submission(submissionId).updateUserComment(trimmedComment)
+      onSuccess(trimmedComment)
       onDismiss()
     } catch (error) {
       setSaveError(await (error instanceof Response ? error.text() : error.message))
@@ -29,7 +30,7 @@ const UpdateUserCommentModal = ({
   const wrappableOnPeriods = _.flow(str => str?.split(/(\.)/), _.flatMap(sub => sub === '.' ? [wbr(), '.'] : sub))
 
   return h(Modal, {
-    title: !updating ? 'Comments' : 'Updating Comments',
+    title: !updating ? 'Comments (optional)' : 'Updating Comments',
     onDismiss,
     showCancel: !updating,
     okButton: !saveError ?
