@@ -3,7 +3,7 @@ import { Fragment, useImperativeHandle, useRef, useState } from 'react'
 import { div, h, span, table, tbody, td, tr } from 'react-hyperscript-helpers'
 import { AutoSizer } from 'react-virtualized'
 import * as breadcrumbs from 'src/components/breadcrumbs'
-import { ButtonPrimary, Clickable, ClipboardButton, Link, spinnerOverlay } from 'src/components/common'
+import { ButtonPrimary, Clickable, Link, spinnerOverlay } from 'src/components/common'
 import { DelayedSearchInput } from 'src/components/input'
 import { collapseStatus, failedIcon, runningIcon, submittedIcon, successIcon } from 'src/components/job-common'
 import Modal from 'src/components/Modal'
@@ -18,6 +18,8 @@ import * as Style from 'src/libs/style'
 import * as Utils from 'src/libs/utils'
 import { rerunFailures } from 'src/pages/workspaces/workspace/workflows/FailureRerunner'
 import { wrapWorkspace } from 'src/pages/workspaces/workspace/WorkspaceContainer'
+import { icon } from 'src/components/icons'
+import UpdateUserCommentModal from 'src/pages/workspaces/workspace/jobHistory/UpdateUserCommentModal'
 
 
 const styles = {
@@ -118,6 +120,7 @@ const JobHistory = _.flow(
   const [loading, setLoading] = useState(false)
   const [abortingId, setAbortingId] = useState(undefined)
   const [textFilter, setTextFilter] = useState('')
+  const [updatingCommentForSubmissionId, setUpdatingCommentForSubmissionId] = useState(undefined)
 
   const scheduledRefresh = useRef()
   const signal = Utils.useCancellation()
@@ -310,10 +313,17 @@ const JobHistory = _.flow(
               size: { basis: 150, grow: 1 },
               headerRenderer: () => h(HeaderCell, ['Comments']),
               cellRenderer: ({ rowIndex }) => {
-                const { userComment } = filteredSubmissions[rowIndex]
-                return userComment && h(Fragment, [
-                  h(TooltipCell, { tooltip: userComment }, [userComment]),
-                  h(ClipboardButton, { text: userComment, style: { marginLeft: '0.5rem' } })
+                const { submissionId, userComment } = filteredSubmissions[rowIndex]
+                return h(Fragment, [
+                  (updatingCommentForSubmissionId === submissionId) && h(UpdateUserCommentModal, {
+                    workspace: { name, namespace }, submissionId, userComment,
+                    onDismiss: () => setUpdatingCommentForSubmissionId(undefined),
+                    onSuccess: _ => refresh()
+                  }),
+                  userComment && h(TooltipCell, { tooltip: userComment }, [userComment]),
+                  h(Link,
+                    { onClick: () => setUpdatingCommentForSubmissionId(submissionId) },
+                    [icon('edit', { size: 14, style: { marginLeft: '0.5rem' } })])
                 ])
               }
             }
