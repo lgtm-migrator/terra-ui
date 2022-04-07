@@ -4,9 +4,7 @@ import _ from 'lodash/fp'
 import ReactDOM from 'react-dom'
 import { h } from 'react-hyperscript-helpers'
 import RModal from 'react-modal'
-import { initializeAuth } from 'src/libs/auth'
-import { initializeTCell } from 'src/libs/tcell'
-import Main from 'src/pages/Main'
+import { HelloWorld } from 'src/components/HelloWorld'
 
 
 const appRoot = document.getElementById('root')
@@ -17,6 +15,4 @@ window.SATURN_VERSION = process.env.REACT_APP_VERSION
 
 window._ = _
 
-ReactDOM.render(h(Main), appRoot)
-initializeAuth()
-initializeTCell()
+ReactDOM.render(h(HelloWorld), appRoot)

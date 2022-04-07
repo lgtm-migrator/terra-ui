@@ -1,9 +1,8 @@
-import { a, div, h2, href } from 'react-hyperscript-helpers'
+import { a, div, h2 } from 'react-hyperscript-helpers'
 import headerLeftHexes from 'src/images/header-left-hexes.svg'
 import headerRightHexes from 'src/images/header-right-hexes.svg'
 import colors from 'src/libs/colors'
 import { topBarLogo, versionTag } from 'src/libs/logos'
-import * as Nav from 'src/libs/nav'
 import * as Style from 'src/libs/style'
 
 
@@ -37,7 +36,7 @@ export const HelloWorld = () => {
         }, [
           a({
             style: { ...styles.pageTitle, display: 'flex', alignItems: 'center' },
-            href: href || Nav.getLink('root')
+            href: '#'
           }, [
             topBarLogo(),
             div({}, [

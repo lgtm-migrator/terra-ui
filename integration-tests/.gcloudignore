@@ -1,6 +1,0 @@
-*
-!/src/**
-!/tests/**
-!/utils/**
-!package.json
-!yarn.lock

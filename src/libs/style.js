@@ -1,6 +1,7 @@
 import colors, { terraSpecial } from 'src/libs/colors'
-import { isTerra } from 'src/libs/config'
 
+
+const isTerra = () => true
 
 export const topBarHeight = 66
 
