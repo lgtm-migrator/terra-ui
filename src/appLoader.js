@@ -4,7 +4,7 @@ import _ from 'lodash/fp'
 import ReactDOM from 'react-dom'
 import { h } from 'react-hyperscript-helpers'
 import RModal from 'react-modal'
-import { HelloWorld } from 'src/components/HelloWorld'
+import Main from 'src/pages/Main'
 
 
 const appRoot = document.getElementById('root')
@@ -15,4 +15,4 @@ window.SATURN_VERSION = process.env.REACT_APP_VERSION
 
 window._ = _
 
-ReactDOM.render(h(HelloWorld), appRoot)
+ReactDOM.render(h(Main), appRoot)
