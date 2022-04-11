@@ -3,60 +3,18 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
-    "@databiosphere/bard-client": "^0.1.0",
-    "@fortawesome/fontawesome-svg-core": "^1.2.36",
-    "@fortawesome/free-regular-svg-icons": "^5.15.4",
-    "@fortawesome/free-solid-svg-icons": "^5.15.4",
-    "@fortawesome/react-fontawesome": "^0.1.15",
     "animate.css": "^4.1.1",
-    "array-move": "^4.0.0",
-    "clipboard-polyfill": "^3.0.3",
     "color": "^4.0.1",
-    "date-fns": "^2.24.0",
-    "debounce-promise": "^3.1.2",
-    "dompurify": "^2.3.3",
-    "downshift": "^6.1.7",
     "easymde": "^2.16.1",
-    "file-saver": "^2.0.5",
-    "filesize": "^7.0.0",
     "github-markdown-css": "^4.0.0",
-    "highcharts": "^9.3.3",
-    "highcharts-react-official": "^3.1.0",
-    "history": "^4.10.1",
-    "iframe-resizer": "^4.3.2",
-    "igv": "2.11.2",
-    "jszip": "^3.7.1",
     "lodash": "^4.17.21",
-    "marked": "^4.0.10",
-    "outdated-browser-rework": "^3.0.1",
-    "path-to-regexp": "^5.0.0",
-    "pluralize": "^8.0.0",
     "prismjs": "^1.27.0",
-    "prop-types": "^15.7.2",
-    "qs": "^6.10.1",
     "react": "17.0.2",
-    "react-collapse": "^5.1.0",
     "react-dom": "17.0.2",
-    "react-draggable": "^4.4.4",
-    "react-dropzone": "^11.4.0",
-    "react-favicon": "^0.0.23",
-    "react-focus-lock": "^2.5.2",
     "react-hyperscript-helpers": "^1.2.0",
-    "react-json-view": "^1.21.3",
     "react-modal": "^3.14.3",
     "react-notifications-component": "^3.1.0",
-    "react-onclickoutside": "^6.12.0",
-    "react-paginating": "^1.4.0",
-    "react-scripts": "5.0.0",
-    "react-select": "^5.2.2",
-    "react-simplemde-editor": "^5.0.2",
-    "react-sortable-hoc": "^2.0.0",
-    "react-switch": "^6.0.0",
-    "react-textarea-autosize": "^8.3.3",
-    "react-transition-group": "^4.4.2",
-    "react-virtualized": "^9.22.3",
-    "uuid": "^8.3.2",
-    "validate.js": "^0.13.1"
+    "react-scripts": "5.0.0"
   },
   "scripts": {
     "analyze": "yarn build && source-map-explorer 'build/static/js/*.js' --gzip",
@@ -87,26 +45,6 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-  "dependenciesMeta": {
-    "@fortawesome/fontawesome-common-types": {
-      "built": false
-    },
-    "@fortawesome/fontawesome-svg-core": {
-      "built": false
-    },
-    "@fortawesome/free-regular-svg-icons": {
-      "built": false
-    },
-    "@fortawesome/free-solid-svg-icons": {
-      "built": false
-    },
-    "core-js": {
-      "built": false
-    },
-    "core-js-pure": {
-      "built": false
-    }
-  },
   "packageManager": "yarn@3.2.0",
   "workspaces": [
     "integration-tests"
