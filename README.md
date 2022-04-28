@@ -2,9 +2,10 @@
 
 ### Manual containerization of Hello World UI
 From the root of the repository run the below steps:
-1. To build the docker image run: `docker build . --no-cache -t <build_tag>`
-2. Next, to run the app: `docker run -d -p 8080:8080 <build_tag>`. The app should be hosted on port 8080
+1. To build the docker image run: `docker build . --no-cache -t us.gcr.io/broad-dsp-gcr-public/terra-batch-analysis-ui:<tag>`
+2. Next, to run the app: `docker run -d -p 8080:8080 us.gcr.io/broad-dsp-gcr-public/terra-batch-analysis-ui:<tag>`. The app should be hosted on port 8080
 3. Navigate to `http://localhost:8080/` to load the Hello World UI
+4. To push the image to GCR, run: `docker push us.gcr.io/broad-dsp-gcr-public/terra-batch-analysis-ui:<tag>`
 
 Note: Don't forget to stop the docker container after use. One can run the below commands to stop and remove the container:
 ```
